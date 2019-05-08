@@ -75,6 +75,13 @@ const MenuNavigator = createStackNavigator(
         Menu: {
             screen: Menu,
             navigationOptions: ({ navigation }) => ({
+                headerStyle: {
+                    backgroundColor: '#512DA8'
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    color: '#fff'
+                },
                 headerLeft: (
                     <Icon
                         name='menu'
@@ -89,23 +96,15 @@ const MenuNavigator = createStackNavigator(
     },
     {
         initialRouteName: 'Menu',
-        navigationOptions: ({ navigation }) => ({
+        navigationOptions: {
             headerStyle: {
                 backgroundColor: '#512DA8'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            },
-            headerLeft: (
-                <Icon
-                    name='menu'
-                    size={24}
-                    color='white'
-                    onPress={() => navigation.toggleDrawer()}
-                />
-            )
-        })
+            }
+        }
     }
 );
 
@@ -114,23 +113,15 @@ const ContactNavigator = createStackNavigator(
         Contact: { screen: Contact }
     },
     {
-        navigationOptions: ({ navigation }) => ({
+        navigationOptions: {
             headerStyle: {
                 backgroundColor: '#512DA8'
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            },
-            headerLeft: (
-                <Icon
-                    name='menu'
-                    size={24}
-                    color='white'
-                    onPress={() => navigation.toggleDrawer()}
-                />
-            )
-        })
+            }
+        }
     }
 );
 
