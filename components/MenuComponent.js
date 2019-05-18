@@ -34,9 +34,7 @@ class Menu extends Component {
                         title={item.name}
                         caption={item.description}
                         featured
-                        onPress={() =>
-                            navigate('DishDetail', { dishId: item.id })
-                        }
+                        onPress={() => navigate('DishDetail', { dishId: item.id })}
                         imageSrc={{ uri: baseUrl + item.image }}
                     />
                 </Animatable.View>
@@ -54,13 +52,7 @@ class Menu extends Component {
                 </View>
             );
         } else {
-            return (
-                <FlatList
-                    data={this.props.dishes.dishes}
-                    renderItem={renderMenuItem}
-                    keyExtractor={item => item.id.toString()}
-                />
-            );
+            return <FlatList data={this.props.dishes.dishes} renderItem={renderMenuItem} keyExtractor={item => item.id.toString()} />;
         }
     }
 }

@@ -27,10 +27,7 @@ function RenderItem(props) {
     } else {
         if (item != null) {
             return (
-                <Card
-                    featuredTitle={item.name}
-                    featuredSubtitle={item.designation}
-                    image={{ uri: baseUrl + item.image }}>
+                <Card featuredTitle={item.name} featuredSubtitle={item.designation} image={{ uri: baseUrl + item.image }}>
                     <Text style={{ margin: 10 }}>{item.description}</Text>
                 </Card>
             );
@@ -90,11 +87,7 @@ class Home extends Component {
                         transform: [{ translateX: xpos1 }]
                     }}>
                     <RenderItem
-                        item={
-                            this.props.dishes.dishes.filter(
-                                dish => dish.featured
-                            )[0]
-                        }
+                        item={this.props.dishes.dishes.filter(dish => dish.featured)[0]}
                         isLoading={this.props.dishes.isLoading}
                         errMess={this.props.dishes.errMess}
                     />
@@ -105,11 +98,7 @@ class Home extends Component {
                         transform: [{ translateX: xpos2 }]
                     }}>
                     <RenderItem
-                        item={
-                            this.props.promotions.promotions.filter(
-                                promo => promo.featured
-                            )[0]
-                        }
+                        item={this.props.promotions.promotions.filter(promo => promo.featured)[0]}
                         isLoading={this.props.promotions.isLoading}
                         errMess={this.props.promotions.errMess}
                     />
@@ -120,11 +109,7 @@ class Home extends Component {
                         transform: [{ translateX: xpos3 }]
                     }}>
                     <RenderItem
-                        item={
-                            this.props.leaders.leaders.filter(
-                                leader => leader.featured
-                            )[0]
-                        }
+                        item={this.props.leaders.leaders.filter(leader => leader.featured)[0]}
                         isLoading={this.props.leaders.isLoading}
                         errMess={this.props.leaders.errMess}
                     />

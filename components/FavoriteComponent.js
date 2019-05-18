@@ -35,20 +35,16 @@ class Favorites extends Component {
                     onPress: () => {
                         Alert.alert(
                             'Delete Favorite?',
-                            'Are you sure you wish to delete the favorite dish ' +
-                                item.name +
-                                '?',
+                            'Are you sure you wish to delete the favorite dish ' + item.name + '?',
                             [
                                 {
                                     text: 'Cancel',
-                                    onPress: () =>
-                                        console.log(item.name + 'Not Deleted'),
+                                    onPress: () => console.log(item.name + 'Not Deleted'),
                                     style: ' cancel'
                                 },
                                 {
                                     text: 'OK',
-                                    onPress: () =>
-                                        this.props.deleteFavorite(item.id)
+                                    onPress: () => this.props.deleteFavorite(item.id)
                                 }
                             ],
                             { cancelable: false }
@@ -64,9 +60,7 @@ class Favorites extends Component {
                             key={index}
                             title={item.name}
                             subtitle={item.description}
-                            onPress={() =>
-                                navigate('DishDetail', { dishId: item.id })
-                            }
+                            onPress={() => navigate('DishDetail', { dishId: item.id })}
                             leftAvatar={{
                                 source: { uri: baseUrl + item.image }
                             }}
@@ -87,9 +81,7 @@ class Favorites extends Component {
         } else {
             return (
                 <FlatList
-                    data={this.props.dishes.dishes.filter(dish =>
-                        this.props.favorites.some(el => el === dish.id)
-                    )}
+                    data={this.props.dishes.dishes.filter(dish => this.props.favorites.some(el => el === dish.id))}
                     renderItem={renderMenuItem}
                     keyExtractor={item => item.id.toString()}
                 />

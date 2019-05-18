@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    StyleSheet,
-    Picker,
-    Switch,
-    Button,
-    Alert
-} from 'react-native';
+import { Text, View, StyleSheet, Picker, Switch, Button, Alert } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from 'react-native-animatable';
 
@@ -31,14 +23,7 @@ class Reservation extends Component {
         console.log(JSON.stringify(this.state));
         Alert.alert(
             'Your Reservation OK?',
-            'Number of Guests: ' +
-                this.state.guests +
-                '\n' +
-                'Smoking? ' +
-                this.state.smoking +
-                '\n' +
-                'Date and Time: ' +
-                this.state.date,
+            'Number of Guests: ' + this.state.guests + '\n' + 'Smoking? ' + this.state.smoking + '\n' + 'Date and Time: ' + this.state.date,
             [
                 {
                     text: 'Cancel',
@@ -74,9 +59,7 @@ class Reservation extends Component {
                     <Picker
                         style={styles.formItem}
                         selectedValue={this.state.guests}
-                        onValueChange={(itemValue, itemIndex) =>
-                            this.setState({ guests: itemValue })
-                        }>
+                        onValueChange={(itemValue, itemIndex) => this.setState({ guests: itemValue })}>
                         <Picker.Item label='1' value='1' />
                         <Picker.Item label='2' value='2' />
                         <Picker.Item label='3' value='3' />
@@ -91,9 +74,7 @@ class Reservation extends Component {
                         style={styles.formItem}
                         value={this.state.smoking}
                         trackColor={{ true: '#512DA8', false: null }}
-                        onValueChange={value =>
-                            this.setState({ smoking: value })
-                        }
+                        onValueChange={value => this.setState({ smoking: value })}
                     />
                 </View>
                 <View style={styles.formRow}>
@@ -125,12 +106,7 @@ class Reservation extends Component {
                     />
                 </View>
                 <View style={styles.formRow}>
-                    <Button
-                        onPress={() => this.handleReservation()}
-                        title='Reserve'
-                        color='#512DA8'
-                        accessibilityLabel='Learn more about this purple button'
-                    />
+                    <Button onPress={() => this.handleReservation()} title='Reserve' color='#512DA8' accessibilityLabel='Learn more about this purple button' />
                 </View>
             </Animatable.View>
         );
