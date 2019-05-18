@@ -40,6 +40,11 @@ function RenderDish(props) {
         else return false;
     };
 
+    const recognizeComment = ({ moveX, moveY, dx, dy }) => {
+        if (dx > 200) return true;
+        else return false;
+    };
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (e, gestureState) => {
             return true;
@@ -76,6 +81,8 @@ function RenderDish(props) {
                     ],
                     { cancelable: false }
                 );
+
+            if (recognizeComment(gestureState)) props.onToggleModal();
 
             return true;
         }
@@ -168,35 +175,38 @@ function CommentModal(props) {
                     type={'star'}
                     ratingCount={5}
                     startingValue={props.startingValue}
-                    imageSize={60}
+                    imageSize={40}
                     minValue={1}
                     showRating
                     onFinishRating={rating => props.handleRating(rating)}
                 />
             </View>
-            <Input
-                placeholder=' Author'
-                leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                onChangeText={author => {
-                    props.updateAuthor(author);
-                }}
-                value={props.author}
-            />
-            <Input
-                placeholder=' Comment'
-                leftIcon={{ type: 'font-awesome', name: 'comment-o' }}
-                onChangeText={comment => {
-                    props.updateComment(comment);
-                }}
-                value={props.comment}
-            />
+            <View>
+                <Input
+                    placeholder=' Author'
+                    leftIcon={{ type: 'font-awesome', name: 'user-o' }}
+                    onChangeText={author => {
+                        props.updateAuthor(author);
+                    }}
+                    value={props.author}
+                />
+            </View>
+            <View>
+                <Input
+                    placeholder=' Comment'
+                    leftIcon={{ type: 'font-awesome', name: 'comment-o' }}
+                    onChangeText={comment => {
+                        props.updateComment(comment);
+                    }}
+                    value={props.comment}
+                />
+            </View>
             <Button
                 onPress={props.onHandleComment}
                 title='Submit'
                 color='#512DA8'
                 accessibilityLabel='Submit Your Comment'
             />
-
             <Button
                 onPress={props.onResetForm}
                 title='Cancel'
