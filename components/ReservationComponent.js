@@ -29,7 +29,6 @@ class Reservation extends Component {
                 {
                     text: 'Cancel',
                     onPress: () => {
-                        this.presentLocalNotification(this.state.date);
                         this.resetForm();
                     },
                     style: 'cancel'
@@ -37,6 +36,7 @@ class Reservation extends Component {
                 {
                     text: 'OK',
                     onPress: () => {
+                        this.presentLocalNotification(this.state.date);
                         this.resetForm();
                     }
                 }
